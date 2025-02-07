@@ -1,4 +1,5 @@
 from django import forms
+from datetime import datetime
 
 class UniversityForm(forms.Form):
     SUBJECT_CHOICES = (
@@ -12,4 +13,4 @@ class UniversityForm(forms.Form):
         choices= SUBJECT_CHOICES,
         widget=forms.RadioSelect()
         )
-    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'max': datetime.now().date()}))
