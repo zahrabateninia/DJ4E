@@ -8,5 +8,8 @@ class UniversityForm(forms.Form):
     )
     name = forms.CharField()
     age = forms.IntegerField()
-    subjects = forms.ChoiceField(choices= SUBJECT_CHOICES)
-    date_of_birth = forms.DateField()
+    subjects = forms.ChoiceField(
+        choices= SUBJECT_CHOICES,
+        widget=forms.RadioSelect()
+        )
+    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
